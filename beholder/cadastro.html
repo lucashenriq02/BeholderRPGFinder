@@ -1,38 +1,7 @@
-<header data-bs-theme="dark" >
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" >Beholder | RPG Finder</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mestres</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mesas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Comunidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Ajuda</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input  class="form-control me-2" type="search"  placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" style="color: #8b0008; border-color: #8b0008;" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-</header>
-
 
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
+<html lang="pt-br" data-bs-theme="auto">
+  <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,8 +11,6 @@
     <title>Cadastro</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-
-    
 
     
 
@@ -126,8 +93,43 @@
     
     <!-- Custom styles for this template -->
     <link href="sign-in.css" rel="stylesheet">
+
   </head>
   <body class="text-center">
+
+
+    <header data-bs-theme="dark" >
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" >Beholder | RPG Finder</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Mestres</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Mesas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Comunidade</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Ajuda</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input  class="form-control me-2" type="search"  placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" style="color: #8b0008; border-color: #8b0008;" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -179,35 +181,41 @@
       </ul>
     </div>
 
+
+    
     
 <main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="images/logo.png" alt="" width="160" height="160">
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  
+  <form action="" id="form" method="post">
+    <img class="mb-4" src="images/logo.png" alt="logo" width="160" height="160">
     <h1 class="h3 mb-3 fw-normal">Cadastro</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Nome Completo</label>
+      <input type="text" class="form-control" id="nome" placeholder="">
+      <label for="nome">Nome Completo</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Usuário</label>
+      <input type="text" class="form-control" id="usuario" placeholder="">
+      <label for="usuario">Usuário</label>
     </div>
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">CPF</label>
+      <input type="text" class="form-control" id="cpf" placeholder="">
+      <label for="cpf">CPF</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Endereço</label>
+      <input type="adress" class="form-control" id="endereco" placeholder="">
+      <label for="endereco">Endereço</label>
     </div>
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+      <label for="email">Email</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Senha</label>
+      <input type="password" class="form-control" id="senha" placeholder="Password">
+      <label for="senha">Senha</label>
     </div>
 
     <div class="checkbox mb-3">
@@ -215,7 +223,8 @@
         <input type="checkbox" value="remember-me"> Lembre-se de mim
       </label>
     </div >
-    <a href="home.html"><button style="background-color: #8b0000; border-color: #8b0000;" class="w-100 btn btn-lg btn-bd-primary style" type="button">Entrar</button></a>
+    <a href="home.html"><button id="btn" style="background-color: #8b0000; border-color: #8b0000;" class="w-100 btn btn-lg btn-bd-primary style" type="button" >Entrar</button></a>
+
     <br>
     <a href="login.html">Já possui uma conta?</a>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
@@ -223,6 +232,46 @@
 </main>
 
 
+<script>
+  const form = document.getElementById("form");
+  const nomeInput = document.getElementById("nome");
+  const usuarioInput = document.getElementById("usuario");
+  const cpfInput = document.getElementById("cpf");
+  const enderecoInput = document.getElementById("endereco");
+  const emailInput = document.getElementById("email");
+  const senhaInput = document.getElementById("senha");
+  
+
+  btn.addEventListener("click",() =>{
+      const nome = nomeInput.value;
+      const usuario = usuarioInput.value;
+      const cpf = cpfInput.value;
+      const endereco = enderecoInput.value;
+      const email = emailInput.value;
+      const senha = senhaInput.value;
+      
+
+      axios.post("http://localhost:3000/user",{
+          nome: nome,
+          usuario: usuario,
+          cpf: cpf,
+          endereco: endereco,
+          email: email,
+          senha: senha
+      })
+      .then((Response) => {
+          output.innerHTML = `<div class="alert alert-sucess alert-dismissible fade show" role="alert">
+              <strong>perfeito!</strong>cadastro concluido. 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`
+          form.reset()
+      })
+      .catch(function (err){
+         
+      })
+
+  })
+
+</script>
     
   </body>
 </html>
