@@ -1,35 +1,3 @@
-<header data-bs-theme="dark" >
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" >Beholder | RPG Finder</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mestres</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mesas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Comunidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Ajuda</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input  class="form-control me-2" type="search"  placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" style="color: #8b0008; border-color: #8b0008;" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-</header>
-
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -39,9 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>Cadastro</title>
+    <title>Descrição</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
     
 
@@ -103,7 +71,7 @@
       }
 
       .btn-bd-primary {
-        --bd-violet-bg: #8b0000;
+        --bd-violet-bg: #712cf9;
         --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
 
         --bs-btn-font-weight: 600;
@@ -124,10 +92,8 @@
     </style>
 
     
-    <!-- Custom styles for this template -->
-    <link href="sign-in.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -144,8 +110,10 @@
       </symbol>
     </svg>
 
+    
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
       <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              style="background-color: #8b0008; border-color: #8b0008;"
               id="bd-theme"
               type="button"
               aria-expanded="false"
@@ -179,50 +147,93 @@
       </ul>
     </div>
 
+
     
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="images/logo.png" alt="" width="160" height="160">
-    <h1 class="h3 mb-3 fw-normal">Cadastro</h1>
+    <header data-bs-theme="dark" >
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+        <div class="container-fluid">
+          <a href="home.html"><a class="navbar-brand" href="#" >Beholder | RPG Finder</a></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a href="mestres.html"><button class="nav-link" href="#">Mestres</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="mesas.html"><button class="nav-link" href="#">Mesas</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="comunidade.html"><button class="nav-link" href="#">Comunidade</button></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Ajuda</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input  class="form-control me-2" type="search"  placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" style="color: #8b0008; border-color: #8b0008;" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Nome Completo</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Usuário</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">CPF</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Endereço</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Senha</label>
-    </div>
+<main>
+  <br>
+  <br>
+  <br>
+  <div style="text-align: center; position: relative;">
+    <img src="images/reinos perdidos.jpg" alt="Header Imagem" style="width: 1250px; height: 625px;">
 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Lembre-se de mim
-      </label>
-    </div >
-    <a href="home.html"><button style="background-color: #8b0000; border-color: #8b0000;" class="w-100 btn btn-lg btn-bd-primary style" type="button">Entrar</button></a>
-    <br>
-    <a href="login.html">Já possui uma conta?</a>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
-  </form>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(255, 255, 255));"></div>
+  </div>
+
+  <div class="container px-4 py-5" id="featured-3">
+    <h1 class="pb-2 border-bottom">Reinos Perdidos</h1>
+    <h5>Medieval, Mistério</h5>
+    <h5>Sábado, 16:30</h5>
+    <h5>$30/ Sessão</h5>
+    <h5>Vagas: 3/5</h5>
+    <div class="feature col">
+      <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+
+      </div>
+
+      <p>Uma jornada épica por terras misteriosas e esquecidas, onde heróis devem enfrentar perigos ancestrais e desvendar segredos antigos para salvar o mundo. Em sua busca por respostas, os protagonistas adentram terras desconhecidas, repletas de perigos e segredos há muito esquecidos. Cada passo revela uma nova criatura formidável ou uma relíquia sagrada que guarda um poder inimaginável. Unidos pela necessidade de proteger tudo o que amam, os heróis embarcam em uma jornada que os testará além de seus limites. Nessa jornada épica, as escolhas dos heróis moldam o destino do mundo. O sucesso trará a salvação e a restauração da harmonia, mas o fracasso significará a escuridão eterna e a ruína de tudo o que conhecem e amam. Os heróis estão prontos para enfrentar seu destino e escrever uma nova história na qual a coragem, a sabedoria e a esperança prevalecem contra todas as adversidades.</p>
+      <a>Mestre: <a href="#" class="icon-link">
+        Nyx
+        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+      </a></a>
+    </div>
+    
+
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <button class="w-45 btn btn-primary btn-lg" style="background-color: #8b0008; border-color: #8b0008;" type="submit">Enviar Solicitação</button>
+  </div>
+</form>
+</div>
+</div>
 </main>
 
+<footer class="my-5 pt-5 text-body-secondary text-center text-small">
+<p class="mb-1">&copy; 2017–2023 Beholder</p>
+<ul class="list-inline">
+<li class="list-inline-item"><a href="#">Privacy</a></li>
+<li class="list-inline-item"><a href="#">Terms</a></li>
+<li class="list-inline-item"><a href="#">Support</a></li>
+</ul>
+</footer>
+</div>
 
-    
-  </body>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="checkout.js"></script>
+</body>
 </html>
