@@ -38,16 +38,21 @@ router.get('/user/:id?',async function(req, res, next){
   }
 })
 
-router.get('/user/senha/:senha',async function(req, res, next){
+router.get('/user/senha/:senha', async function(req, res, next){
   try {
-      const db = await connect();
-      const senha = req.params.senha; // Obter o valor do parâmetro senha
-      res.json(await db.collection("user").findOne({ senha: senha }));
+    const db = await connect();
+    const senha = req.params.senha;
+    const user = await db.collection("user").findOne({ senha: senha });
+    if (user) {
+      res.json({ senha: user.senha, id: user._id });
+    } else {
+      res.status(404).json({ erro: "Usuário não encontrado" });
+    }
   } catch (ex) {
     console.log(ex);
     res.status(400).json({ erro: `${ex}` });
   }
-})
+});
 
 // POST
 router.post('/user', async function(req, res, next){
@@ -140,7 +145,65 @@ router.delete('/mesas/:id', async function(req, res, next){
       res.status(400).json({erro: `${ex}`});
   }
 })
+// Fim API mesas
+
+// API posts
+
+// GET
+router.get('/posts/:id?',async function(req, res, next){
+  try {
+      const db = await connect();
+      if (req.params.id) {
+          res.json(await db.collection("posts").findOne({_id: new ObjectId(req.params.id)}));
+      } else {
+          res.json(await db.collection("posts").find().toArray());
+      }
+  } catch (ex) {
+      
+  }
+})
+
+
+// POST
+router.post('/posts', async function(req, res, next){
+  try {
+      const posts = req.body;
+      const db = await connect();
+      res.json(await db.collection("posts").insertOne(posts));
+  } catch (ex) {
+      console.log(ex);
+      res.status(400).json({erro: `${ex}`});
+  }
+})
+
+// PUT
+router.put('/posts/:id', async function(req, res, next){
+  try {
+      const posts = req.body;
+      const db = await connect();
+      res.json(await db.collection("posts").updateOne({_id: new ObjectId(req.params.id)},{$set: posts}));
+  } catch (ex) {
+      console.log(ex);
+      res.status(400).json({erro: `${ex}`});
+  }
+})
+
+
+// DELETE
+router.delete('/posts/:id', async function(req, res, next){
+  try {
+      const db = await connect();
+      res.json(await db.collection("posts").deleteOne({_id: new ObjectId(req.params.id)}));
+  } catch (ex) {
+      console.log(ex);
+      res.status(400).json({erro: `${ex}`});
+  }
+})
 // Fim API user
+
+
+
+
 
 app.use('/', router);
 

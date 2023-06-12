@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Editar Perfil</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
+    
+    
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="checkout.css" rel="stylesheet">
+  </head>
+
+
+    
+  <script>
+    const urlParams =   new URLSearchParams(window.location.search);
+    const id        =   urlParams.get("id");
+  
+    if (id !== null) {
+  
+        axios.get("http://localhost:3000/user/" + id + "")
+        .then(function (response) {
+            document.getElementById('_id').value            =   response.data._id;
+            document.getElementById('cpf').value            =   response.data.cpf;
+            document.getElementById('endereco').value            =   response.data.endereco;
+            document.getElementById('email').value            =   response.data.email;
+            document.getElementById('senha').value            =   response.data.senha;
+
+            document.getElementById('firstName').value            =   response.data.nome;
+            document.getElementById('userName').value            =   response.data.usuario;
+            document.getElementById('descricao').value            =   response.data.descricao;
+            
+        })
+        .catch(function (err) {
+            alert(err.message);
+        });
+  
+    }  
+  </script>
+  <body class="bg-body-tertiary">
+   
+    <script>
+     
+
+      // Agora você pode usar o ID do usuário como quiser na página home
+      function redirectToHome(){
+        window.location.href = `home.html?id=${userId}`;
+
+      }
+
+      function redirectToComunidade() {
+        if(userId == null){
+          window.location.href = "login.html";
+        }else{
+          window.location.href = `comunidade.html?id=${userId}`;
+        }
+      }
+      function redirectToMestres() {
+        window.location.href = `mestres.html?id=${userId}`;
+      }
+
+      function redirectToMesas(){
+        window.location.href = `mesas.html?id=${userId}`;
+      }
+
+    </script>
+
+<header data-bs-theme="dark" >
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0);" onclick="redirectToHome()" >Beholder | RPG Finder</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="redirectToMestres()">Mestres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="redirectToMesas()" >Mesas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="redirectToComunidade()">Comunidade</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input  class="form-control me-2" type="search"  placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" style="color: #8b0008; border-color: #8b0008;" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>                
+.profile-icon {
+  position: absolute;
+  top: 200px;
+  left: 20px;
+  border: 4px solid #fff;
+  border-radius: 100%;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: px;
+  object-fit: cover;
+}
+.header {
+                  background-color: #ffffff;
+                  color: #fff;
+                  padding: px;
+                  text-align: center;
+                  position: relative;
+                }
+            
+                .header-image {
+                  width: 100%;
+                  height: 300px;
+                  object-fit: cover;
+                }
+
+</style>
+
+
+<div class="container">
+  <main>
+
+
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="images/logo.png" alt="" width="100" height="100">
+      <h2>Perfil</h2>
+      <div id="output"></div>
+    </div>
+
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">Editar Perfil</h4>
+
+      <div class="header">
+        <img  src="images/a era perdida.jpg" alt="Imagem de Capa" class="header-image">
+        <div class="profile-icon">
+          <img src="images/a era perdida.jpg" alt="Ícone do Perfil" class="profile-image">
+        </div>
+        <br>        <br>        <br>        <br>        
+      <form id="form" class="needs-validation" novalidate>
+        <input type="hidden" class="form-control" id="_id">
+        <input type="hidden" class="form-control" id="cpf">
+        <input type="hidden" class="form-control" id="endereco">
+        <input type="hidden" class="form-control" id="email">
+        <input type="hidden" class="form-control" id="senha">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Nome" value="" required>
+            <div class="invalid-feedback">
+              Nome válido é obrigatório.
+            </div>
+          </div>
+    
+          <div class="col-sm-6">
+            <label for="userName" class="form-label">Usuário</label>
+            <input type="text" class="form-control" id="userName" placeholder="Usuário" value="" required>
+            <div class="invalid-feedback">
+              Sobrenome válido é obrigatório.
+            </div>
+          </div>
+    
+          <div class="col-sm-6">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="descricao" placeholder="Descrição" value="" required>
+            <div class="invalid-feedback">
+              Descrição válida é obrigatória.
+            </div>
+          </div>
+    <br>
+    <button id="btnSalvar" style="background-color: #8b0000; border-color: #8b0000;" class="w-100 btn btn-lg btn-bd-primary style" type="button" >Salvar</button>
+        </div>
+      </form>
+    </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">&copy; 2017–2023 Beholder</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+
+
+
+
+    <script>
+    
+
+    const form = document.getElementById("form");
+    const _idInput        =   document.getElementById("_id");
+    const cpfInput        =   document.getElementById("cpf");
+    const enderecoInput        =   document.getElementById("endereco");
+    const emailInput        =   document.getElementById("email");
+    const senhaInput        =   document.getElementById("senha");
+
+    const firstNameInput   =   document.getElementById("firstName");
+    const userNameInput = document.getElementById("userName");
+    const descricaoInput = document.getElementById("descricao");
+      
+    
+    const output = document.getElementById("output");
+    const btnSalvar = document.getElementById("btnSalvar");
+   
+
+  
+    btnSalvar.addEventListener("click",() =>{
+      const _id         =   _idInput.value;
+      const cpf         =   cpfInput.value;
+      const endereco    =   enderecoInput.value;
+      const email       =   emailInput.value;
+      const senha       =   senhaInput.value;
+
+      const firstName = firstNameInput.value;
+      const userName = userNameInput.value;
+      const descricao = descricaoInput.value;
+
+
+      
+      axios.put("http://localhost:3000/user/"+_id, {
+          cpf: cpf,
+          endereco: endereco,
+          email: email,
+          senha: senha,
+          nome: firstName,
+          usuario: userName,
+          descricao: descricao
+            
+      })
+      .then((response) => {
+        output.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Perfeito!</strong> Perfil atualizado.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>`;
+        window.location.href = `comunidade.html?id=${_id}`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      
+  
+    })
+  
+  </script>
+
+      
+  </body>
+</html>

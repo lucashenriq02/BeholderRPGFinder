@@ -101,45 +101,14 @@
   <body class="bg-body-tertiary">
 
 
-    <header data-bs-theme="dark" >
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
-        <div class="container-fluid">
-          <a class="navbar-brand" href="home.html" >Beholder | RPG Finder</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Mestres</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="mesas.html">Mesas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Comunidade</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Ajuda</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input  class="form-control me-2" type="search"  placeholder="Search" aria-label="Search" id="busca">
-              <button class="btn btn-outline-success" style="color: #8b0008; border-color: #8b0008;" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-
 
     <script>
       const urlParams =   new URLSearchParams(window.location.search);
-      const id        =   urlParams.get("id");
+      const mesaId        =   urlParams.get("id");
 
-      if (id !== null) {
+      if (mesaId !== null) {
 
-          axios.get("http://localhost:3000/mesas/" + id + "")
+          axios.get("http://localhost:3000/mesas/" + mesaId + "")
           .then(function (response) {
               document.getElementById('_id').value            =   response.data._id;
               document.getElementById('titulo').value      =   response.data.titulo;
@@ -161,7 +130,7 @@
 
 
       function botao() {
-          if (id) {
+          if (mesaId) {
               document.getElementById("botao").innerHTML = '<button type="button" id="btn" class="w-100 btn btn-primary btn-lg" style="background-color: #8b0008; border-color: #8b0008;" >Atualizar Mesa</button>'
           } else {
               document.getElementById("botao").innerHTML = '<button type="button" id="btn" class="w-100 btn btn-primary btn-lg" style="background-color: #8b0008; border-color: #8b0008;" >Criar Mesa</button>'
@@ -170,7 +139,7 @@
          
 
       function pagina() {
-          if (id) {
+          if (mesaId) {
               document.getElementById("pagina").innerHTML = 'Atualizar Mesa'
           } else {
               document.getElementById("pagina").innerHTML = 'Criar Mesa'
@@ -179,12 +148,27 @@
       
         
 
-  </script>
 
+      // Agora você pode usar o ID do usuário como quiser na página home
+      function redirectToHome(){    
+          window.location.href = "login.html";
+      }
 
+      
 
+    </script>
 
-
+      <header data-bs-theme="dark" >
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0);" onclick="redirectToHome()" >Beholder | RPG Finder</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+         
+        </div>
+        </nav>
+      </header>
 
     
 <div class="container">
@@ -205,6 +189,12 @@
         <form id="form"  method="post">
           <input type="hidden" class="form-control" id="_id">
           <div class="row g-3">
+
+            <div class="col-sm-12">
+              <label for="imagem" class="form-label">Imagem</label>
+              <input type="file" class="form-control" id="imagem" value="" required>
+            </div>
+
             <div class="col-sm-6">
               <label for="titulo" class="form-label">Título</label>
               <input type="text" class="form-control" id="titulo" value="" required>
@@ -350,6 +340,7 @@
     const temaInput = document.getElementById("tema");
     const subtemaInput = document.getElementById("subtema");
     const valorInput = document.getElementById("valor");
+    const imagemInput = document.getElementById("imagem");
     
     
   
@@ -364,9 +355,14 @@
       const tema = temaInput.value;
       const subtema = subtemaInput.value;
       const valor = valorInput.value;
+      const imagem = imagemInput.value;
+      
+      
+
 
       if (_id === '') {
         axios.post("http://localhost:3000/mesas", {
+            imagem: imagem.slice(12,imagem.length+1),
             titulo: titulo,
             subtitulo: subtitulo,
             descricao: descricao,
@@ -376,6 +372,7 @@
             tema: tema,
             subtema: subtema,
             valor: valor
+            
           })
           .then((response) => {
             output.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -388,6 +385,7 @@
           });
       } else {
         axios.put("http://localhost:3000/mesas/" + _id, {
+            imagem: imagem.slice(12,imagem.length+1),
             titulo: titulo,
             subtitulo: subtitulo,
             descricao: descricao,
